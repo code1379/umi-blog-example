@@ -57,4 +57,21 @@ pscale database list
 pscale branch list umi-blog-example
 ```
 
-### prisma 常用操作                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+### prisma 常用操作                                                                                                                                                                    ```
+prisma db push
+prisma studio
+```          
+
+### 在线 redis https://console.upstash.com/redis/35aef327-9075-4ddc-bd4b-52a3850fba4d
+```
+import { Redis } from '@upstash/redis'
+
+const redis = new Redis({
+  url: 'https://apn1-relative-halibut-33311.upstash.io',
+  token: 'AYIfASQgMzVhZWYzMjctOTA3NS00ZGRjLWJkNGItNTJhMzg1MGZiYTRkYThlMmRmZjBlMTZjNGYwMThjODM5NzQwMDJmMmM2ZDc=',
+})
+   
+const data = await redis.get('key');
+```
+
+## 如何在.env 中配置，参考 https://github.dev/upstash/upstash-redis/tree/main/examples/cloudflare-workers
