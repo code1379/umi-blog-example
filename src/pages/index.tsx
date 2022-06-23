@@ -1,16 +1,23 @@
-import React from 'react';
-import yayJpg from '../assets/yay.jpg';
+import React, { useState } from "react";
+import { history } from "umi";
 
 export default function HomePage() {
+  console.log("history from umi", history);
+  const [posts, setPosts] = useState<any[]>();
   return (
     <div>
-      <h2>Yay! Welcome to umi111!</h2>
-      <p>
-        <img src={yayJpg} width="388" />
-      </p>
-      <p>
-        To get started, edit <code>pages/index.tsx</code> and save to reload.
-      </p>
+      {!posts && <p>Loading</p>}
+      {posts && (
+        <div>
+          {posts.map((post) => (
+            <div key={post.id}>
+              <div onClick={() => history.push(`/posts/${post.id}`)}>
+                <p>{post.title}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
