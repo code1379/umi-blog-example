@@ -57,7 +57,7 @@ pscale database list
 pscale branch list umi-blog-example
 ```
 
-### prisma 常用操作                                                                                                                                                                    ```
+### prisma 常用操作                                                                                                                                              ```
 prisma db push
 prisma studio
 ```          
