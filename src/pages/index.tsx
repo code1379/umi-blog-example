@@ -37,6 +37,7 @@ const HomePage = () => {
           <div>
             {posts.map((post) => (
               <Card
+                key={post.id}
                 hoverable
                 style={{ width: 240 }}
                 cover={<img alt="example" src={post.imageUrl} />}

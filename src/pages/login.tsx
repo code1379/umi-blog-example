@@ -5,12 +5,16 @@ import {useRequest} from 'ahooks'
 import {StoreContext} from "@/store";
 // @ts-ignore
 import {history} from "umi";
+import {observer} from "mobx-react";
+import {Navigate} from "@/.umi/exports";
 
 const LoginPage = () => {
 
   const [form] = Form.useForm();
   // storeContext
   const {userStore} = useContext(StoreContext);
+  const isLogin = userStore.isLogin
+
   // 请求
   const {run: runLogin} = useRequest(umiLogin, {
     manual: true,
@@ -37,44 +41,47 @@ const LoginPage = () => {
   }
 
   return <>
-    <div className="h-screen relative flex justify-center items-center">
-      <Card style={{width: 500, marginTop: -60}}>
-        <h1 className="font-bold text-center text-4xl leading-loose">登录</h1>
-        <Form form={form}
-              labelCol={{span: 4}}
-              wrapperCol={{span: 20}}
-              onFinish={onFinish}
-        >
-          <Form.Item name="email"
-                     label={"email"}
-                     rules={[{required: true, message: 'Please input your email!'}]}
-                     // initialValue={'v.fcs@jxfcdhkaui.ru'}
-                     initialValue={'b.bondijl@imhomr.gn'}
-          >
-            <Input></Input>
-          </Form.Item>
-          <Form.Item
-            name="password"
-            label={"password"}
-            rules={[{required: true, message: 'Please input your password!'}]}
-            initialValue={'123456'}
-          >
-            <Input type={"password"}></Input>
-          </Form.Item>
-          <Form.Item wrapperCol={{offset: 4, span: 16}}>
-            <Space>
-              <Button type="primary" htmlType="submit">
-                登录
-              </Button>
-              <Button onClick={handleRegister}>
-                去注册
-              </Button>
-            </Space>
-          </Form.Item>
-        </Form>
-      </Card>
+    {
+      !isLogin ? <div className="h-screen relative flex justify-center items-center">
+          <Card style={{width: 500, marginTop: -60}}>
+            <h1 className="font-bold text-center text-4xl leading-loose">登录</h1>
+            <Form form={form}
+                  labelCol={{span: 4}}
+                  wrapperCol={{span: 20}}
+                  onFinish={onFinish}
+            >
+              <Form.Item name="email"
+                         label={"email"}
+                         rules={[{required: true, message: 'Please input your email!'}]}
+                // initialValue={'v.fcs@jxfcdhkaui.ru'}
+                         initialValue={'b.bondijl@imhomr.gn'}
+              >
+                <Input></Input>
+              </Form.Item>
+              <Form.Item
+                name="password"
+                label={"password"}
+                rules={[{required: true, message: 'Please input your password!'}]}
+                initialValue={'123456'}
+              >
+                <Input type={"password"}></Input>
+              </Form.Item>
+              <Form.Item wrapperCol={{offset: 4, span: 16}}>
+                <Space>
+                  <Button type="primary" htmlType="submit">
+                    登录
+                  </Button>
+                  <Button onClick={handleRegister}>
+                    去注册
+                  </Button>
+                </Space>
+              </Form.Item>
+            </Form>
+          </Card>
 
-    </div>
+        </div>
+        : <Navigate to={"/"}/>
+    }
   </>
 }
-export default LoginPage
+export default observer(LoginPage)
