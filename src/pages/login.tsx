@@ -48,7 +48,8 @@ const LoginPage = () => {
           <Form.Item name="email"
                      label={"email"}
                      rules={[{required: true, message: 'Please input your email!'}]}
-                     initialValue={'v.fcs@jxfcdhkaui.ru'}
+                     // initialValue={'v.fcs@jxfcdhkaui.ru'}
+                     initialValue={'b.bondijl@imhomr.gn'}
           >
             <Input></Input>
           </Form.Item>
