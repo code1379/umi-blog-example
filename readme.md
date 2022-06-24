@@ -2,7 +2,7 @@
 https://app.planetscale.com/coderxialuo/umi-blog-example
 
 # prisma
-DATABASE_URL='mysql://7orix1cxqsuj:pscale_pw_euWj41EjwELYyrEOyowOuC3_iET3U_xr7_rtu9NG8UU@orfmkrs6h2pz.ap-northeast-2.psdb.cloud/umi-blog-example?sslaccept=strict'
+DATABASE_URL='mysql://o0xd0i105d33:pscale_pw__KB3hPkHHOapd9yQbY3b8Zz2HwYFiHcYwbYfNkRtYIM@orfmkrs6h2pz.ap-northeast-2.psdb.cloud/umi-blog-example?sslaccept=strict'
 
 ## 还需要查看官方文档 https://docs.planetscale.com/tutorials/prisma-quickstart
 ## watch this video https://www.youtube.com/watch?v=M5Uq6Gu51Xo

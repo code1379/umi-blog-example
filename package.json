@@ -11,13 +11,16 @@
     "@types/bcryptjs": "^2.4.2",
     "@types/jsonwebtoken": "^8.5.8",
     "@upstash/redis": "^1.6.1",
+    "ahooks": "^3.5.0",
     "antd": "^4.21.3",
+    "axios": "^0.27.2",
     "bcryptjs": "^2.4.3",
     "jsonwebtoken": "^8.5.1",
     "mobx": "^6.6.0",
     "mobx-react": "^7.5.0",
     "prisma": "^3.15.2",
-    "umi": "^4.0.0-rc.24"
+    "umi": "^4.0.0-rc.24",
+    "umi-request": "^1.4.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.0",

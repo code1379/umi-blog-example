@@ -4,6 +4,8 @@ import bcrypt from "bcryptjs";
 import { signToken } from "@/utils/jwt";
 
 export default async function (req: UmiApiRequest, res: UmiApiResponse) {
+  console.log("用户触发登录")
+  console.log("req", req.body)
   switch (req.method) {
     case "POST":
       try {
@@ -25,6 +27,7 @@ export default async function (req: UmiApiRequest, res: UmiApiResponse) {
           .json({ ...user, passwordHash: undefined });
         await prisma.$disconnect();
       } catch (error: any) {
+        console.log("error", error)
         res.status(500).json(error);
       }
       break;

@@ -13,4 +13,11 @@ export default {
   tailwindcss: {},
   plugins: ["@umijs/plugins/dist/tailwindcss"],
   // plugins: [require.resolve('@umijs/plugins/dist/tailwindcss')],
+  proxy:{
+    '/api':{
+      'target': "http://locahost:8000/",
+      'changeOrigin': true,
+      // pathRewrite: { '^/api': '/api'}
+    }
+  }
 };
